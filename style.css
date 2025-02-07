@@ -9,8 +9,18 @@ body{
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 3%;
+    padding-right: 3%;
+    position: relative;
+}
+
+#menu-options{
+    border:1px solid white;
+    width: 20%;
+    height: auto;
+    background-color: white;
+    position: absolute;
+    right: 0;
 }
 .header-left{
     display: flex;
@@ -61,8 +71,8 @@ body{
 
 }
 .main-part1-search i{
-    background-color: white;
-    color: black;
+    background-color: orange;
+    color: white;
     height: 50px;
     width: 50px;
     border-radius: 50%;
@@ -73,6 +83,12 @@ body{
 
 }
 
-/* categories start here */
+/* 3 horizontal lines  */
+/* .menu-options{
+    display: none;
+    position: absolute;
+    background-color: white;
+    padding: 4%;
+} */
 
 
