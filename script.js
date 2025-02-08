@@ -1,3 +1,5 @@
+import { cardClickingCategory } from "./cardClickingCategory.js";
+
 let categoriesData = [];
 
 let menuArray = []
@@ -9,6 +11,8 @@ let menu = document.getElementById('menu');
 //     document.getElementById("selected-item").style.display = "block";
 
 // }
+
+
 
 
 const iconChange = () => {
@@ -55,6 +59,14 @@ const closeMenu = () => {
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('menu-button').addEventListener('click', iconChange);
 
+    fetchProducts();
+    //  for clicking header left and going to top
+let headerleft = document.querySelector('.header-left');
+headerleft.addEventListener(('click'),()=>{
+    document.getElementById('categories-main').style.display='block';
+    document.getElementById('selected-item').style.display='none';
+})
+
    
 
 
@@ -62,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
     // directly am calling
-    fetchProducts();
+ 
 
 
 
@@ -76,6 +88,8 @@ async function fetchProducts() {
         let response = await fetch("https://www.themealdb.com/api/json/v1/1/categories.php");
         let data = await response.json();
         categoriesData = data.categories;
+        console.log(categoriesData);
+
 
 
 
@@ -83,9 +97,10 @@ async function fetchProducts() {
     <div class="row row-cols-1 row-cols-md-5 g-4">
         ${categoriesData.map((item) => {
             menuArray.push(item.strCategory);
+
             return `
                 <div class="col">
-                    <div class="card"  data-category="${item.strCategory}" style="position:relative;  padding:5%; border:2px solid whitesmoke;">
+                    <div class="card"  data-category="${item.strCategory}" data-description = "${item.strCategoryDescription}"style="position:relative;  padding:5%; border:2px solid whitesmoke;">
                         <img src="${item.strCategoryThumb}" class="card-img-top" alt="${item.strCategory}" />
                         <p class="card-text" style="position:absolute; background-color:rgb(225, 97, 32); right:5%; color:white; font-weight:500; padding:4px 8px; top:5%; border-radius:3px;">
                             ${item.strCategory}
@@ -100,16 +115,7 @@ async function fetchProducts() {
         console.log(menuArray); // Check if categories are added correctly
 
         document.querySelectorAll(".card").forEach(item => {
-            item.addEventListener("click", function () {
-                let selectedItem = document.getElementById("selected-item");
-                let categoriesMain = document.getElementById("categories-main");
-
-                categoriesMain.style.display = "none"; // Hide categories
-                selectedItem.style.display = "block"; // Show selected item
-
-                // Display selected category inside `selected-item`
-                selectedItem.innerHTML = `<h2>You selected: ${this.dataset.category}</h2>`;
-            });
+            item.addEventListener("click", cardClickingCategory);
         });
 
 
