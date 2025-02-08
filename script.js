@@ -4,6 +4,8 @@ let categoriesData = [];
 
 let menuArray = []
 
+let menuObject = {}
+
 let menu = document.getElementById('menu');
 
 // function showSelectedItem(){
@@ -31,7 +33,7 @@ const iconChange = () => {
     </button>
     
     <ul style="list-style-type: none; padding: 80px 0 40px 10px; margin: 0;">
-        ${menuArray.map((item, i) => `<li style="border-bottom: 1px solid whitesmoke">${item}</li>`).join("")}
+        ${menuArray.map((item, i) => `<li style="border-bottom: 1px solid whitesmoke" data-category="${item}" >${item}</li>`).join("")}
 
     
 
@@ -40,6 +42,11 @@ const iconChange = () => {
 
 
     `;
+    document.querySelectorAll("li").forEach((item) => {
+        item.addEventListener("click", function (event) {
+            cardClickingCategory(event, menuObject);
+        });
+    });
 
     // Attach event listener for the close button (cross)
     document.getElementById('cross').addEventListener('click', closeMenu);
@@ -97,6 +104,7 @@ async function fetchProducts() {
     <div class="row row-cols-1 row-cols-md-5 g-4">
         ${categoriesData.map((item) => {
             menuArray.push(item.strCategory);
+            menuObject[item.strCategory] = item.strCategoryDescription;
 
             return `
                 <div class="col">
@@ -115,7 +123,9 @@ async function fetchProducts() {
         console.log(menuArray); // Check if categories are added correctly
 
         document.querySelectorAll(".card").forEach(item => {
-            item.addEventListener("click", cardClickingCategory);
+            item.addEventListener("click", function (event) {
+                cardClickingCategory(event, menuObject); // Pass event and menuObject
+            });
         });
 
 

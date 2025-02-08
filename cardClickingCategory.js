@@ -1,4 +1,4 @@
-export async function cardClickingCategory() {
+export async function cardClickingCategory(event,menuObject) {
     let selectedItem = document.getElementById("selected-item");
     let categoriesMain = document.getElementById("categories-main");
     let title = document.getElementById('title');
@@ -11,12 +11,31 @@ export async function cardClickingCategory() {
     selectedItem.style.display = "block"; // Show selected item
 
 
-    title.innerHTML = `${this.dataset.category}`
-    description.innerHTML = `${this.dataset.description}`
+    let categoryName;
+    let categoryDescription;
+
+    // Check if the event target is a card or a list item
+    if (event.target.closest(".card")) {
+        // Handle card click
+        const cardElement = event.target.closest(".card");
+        categoryName = cardElement.dataset.category;
+        categoryDescription = cardElement.dataset.description;
+    } else if (event.target.tagName === "LI") {
+        // Handle list item click
+        categoryName = event.target.dataset.category;
+        categoryDescription = menuObject[categoryName] || "No description available.";
+    } else {
+        console.error("Invalid event target:", event.target);
+        return;
+    }
+
+    // Update the title and description
+    title.innerHTML = categoryName;
+    description.innerHTML = categoryDescription;
 
     try {
         // here am getting cors with mobiel network so am using below api link
-        let response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(`https://www.themealdb.com/api/json/v1/1/search.php?s=${this.dataset.category}`)}`);
+        let response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(`https://www.themealdb.com/api/json/v1/1/search.php?s=${categoryName}`)}`);
         let data = await response.json();
         console.log(data);
         if (!data.meals) {
