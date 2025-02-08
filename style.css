@@ -12,6 +12,7 @@ body{
     padding-left: 3%;
     padding-right: 3%;
     position: relative;
+    flex-wrap: wrap;
 }
 
 #menu-options{
@@ -82,6 +83,13 @@ body{
     border: 1px solid white;
 
 }
+.col .card img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.col .card img:hover{
+    transform: scale(0.7);
+}
 
 /* 3 horizontal lines  */
 /* .menu-options{
@@ -92,3 +100,26 @@ body{
 } */
 
 
+/* @media (min-width:620px) {
+    div{
+        background-color: yellow;
+    }
+    .main-part1-search{
+        content: '';
+        opacity: 2;
+        transform: translateX(50%);
+        transition: 3s all ease ;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        background-color: aquamarine;
+    }
+    .main-part1{
+        content: '';
+        display: flex;
+        gap: 20px;
+        align-items:center;
+        justify-content: center;
+    }
+} */
