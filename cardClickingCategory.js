@@ -1,3 +1,4 @@
+import { idCardCliking } from "./idCardClicking.js";
 export async function cardClickingCategory(event,menuObject) {
     let selectedItem = document.getElementById("selected-item");
     let categoriesMain = document.getElementById("categories-main");
@@ -40,26 +41,36 @@ export async function cardClickingCategory(event,menuObject) {
         console.log(data);
         if (!data.meals) {
             console.log("No meals found for this category.");
-            mealsContainer.innerHTML = "<p>No meals found.</p>";
+            meals.innerHTML = "<p>No meals found.</p>";
             return;
         }
         meals.innerHTML = `
         <div class="row row-cols-1 row-cols-md-5 g-4">
             ${data.meals
                 .map(
-                    (mealsitem) => `
+                    (mealsitem) => {  
+                        console.log(mealsitem.idMeal)
+                     return    `
                     <div class="col">
-                        <div class="card">
+                        <div class="card" data-id=${mealsitem.idMeal} data-name = ${mealsitem.strMeal}>
                             <img src="${mealsitem.strMealThumb}" class="card-img-top" alt="${mealsitem.strMeal}" />
                             <div class="card-body">
                                 <p class="card-text">${mealsitem.strMeal}</p>
                             </div>
                         </div>
-                    </div>`
+                    </div>`}
                 )
                 .join("")}
         </div>
     `;
+
+
+
+            document.querySelectorAll(".card").forEach(item => {
+                item.addEventListener("click", idCardCliking);
+            });
+
+
      
 
     

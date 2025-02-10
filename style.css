@@ -111,6 +111,65 @@ body{
     font-size: large;
 }
 
+
+
+#name-heading{
+    background-color: orangered;
+    color: white;
+    display: flex;
+    gap: 1%;
+    font-size: 2rem;
+    padding-left: 3%;
+
+
+}
+
+
+/*starts from here*/
+#id_details_container{
+    border:5px solid green;
+    /* height:fit-content ; */
+    width: 100%;
+}
+
+#id_part1{
+    /* height: 100%; */
+    max-height: fit-content;
+    border: 5px solid red;
+    width: 100%;
+    display: flex;
+    gap:5%;
+    padding:3%;
+    box-sizing: border-box;
+}
+
+#id_image{
+    /* border:5px solid green;  */
+    /* flex:1; */
+    width: 40%;
+    max-height: 100%;
+
+
+}
+
+#id_description{
+    /* border:5px solid green; */
+    /* flex:1; */
+    width: 60%;
+    max-height: 100%;
+    padding: 2%;
+
+
+}
+
+
+
+
+
+
+
+
+
 /* 3 horizontal lines  */
 /* .menu-options{
     display: none;
