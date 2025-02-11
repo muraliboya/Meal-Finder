@@ -83,14 +83,24 @@ body{
     border: 1px solid white;
 
 }
-.col .card img {
+.col .card-category img {
     transition: transform 0.3s ease-in-out;
 }
 
-.col .card img:hover{
+.col .card-category img:hover{
     transform: scale(0.7);
 }
-.col .card{
+.col .card-category{
+    height: 100%;
+}
+.col .card-item img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.col .card-item img:hover{
+    transform: scale(0.7);
+}
+.col .card-item{
     height: 100%;
 }
 

@@ -4,6 +4,7 @@ export async function cardClickingCategory(event,menuObject) {
     let categoriesMain = document.getElementById("categories-main");
     let title = document.getElementById('title');
     let description = document.getElementById('description');
+    let idItem = document.getElementById('idItem');
 
 
     let meals = document.getElementById('meals');
@@ -11,15 +12,16 @@ export async function cardClickingCategory(event,menuObject) {
 
     categoriesMain.style.display = "none"; // Hide categories
     selectedItem.style.display = "block"; // Show selected item
+    idItem.style.display = 'none'; // stops id items
 
 
     let categoryName;
     let categoryDescription;
 
     // Check if the event target is a card or a list item
-    if (event.target.closest(".card")) {
+    if (event.target.closest(".card-category")) {
         // Handle card click
-        const cardElement = event.target.closest(".card");
+        const cardElement = event.target.closest(".card-category");
         categoryName = cardElement.dataset.category;
         categoryDescription = cardElement.dataset.description;
     } else if (event.target.tagName === "LI") {
@@ -53,7 +55,7 @@ export async function cardClickingCategory(event,menuObject) {
                         console.log(mealsitem.idMeal)
                      return    `
                     <div class="col">
-                        <div class="card" data-id=${mealsitem.idMeal} data-name = ${mealsitem.strMeal}>
+                        <div class="card-item" data-id=${mealsitem.idMeal} data-name=${mealsitem.strMeal}>
                             <img src="${mealsitem.strMealThumb}" class="card-img-top" alt="${mealsitem.strMeal}" />
                             <div class="card-body">
                                 <p class="card-text">${mealsitem.strMeal}</p>
@@ -67,7 +69,7 @@ export async function cardClickingCategory(event,menuObject) {
 
 
 
-            document.querySelectorAll(".card").forEach(item => {
+            document.querySelectorAll(".card-item").forEach(item => {
                 item.addEventListener("click", idCardCliking);
             });
 

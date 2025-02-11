@@ -35,16 +35,16 @@ export async function idCardCliking() {
 
         console.log("2nd rees"+response.meals[0].strInstructions);
 
-        // split the instructions 
-        let steps = response.meals[0].strInstructions.split(/\r?\n|\t/).map(step => step.trim());
-
-        let newsteps = []
-        for(let i=1;i<steps.length;i+=2){
-            newsteps.push(steps[i]);
-        }
-        newsteps.map(item=>console.log(item));
-        console.log("1st res"+steps);
-        console.log( response.meals[0].strInstructions.split(/\r?\n|\t/));
+        let steps = response.meals[0].strInstructions
+        .split(/\r?\n|\t/)  // Split into lines based on newline or tab
+        .map(step => step.trim())  // Trim extra spaces
+        .filter(step => step && !/^\d+(\.|-)?(\s+.*)?$/.test(step));  // Remove empty and numbered lines
+    
+    console.log(steps);
+    
+        // newsteps.map(item=>console.log(item));
+        // console.log("1st res"+steps);
+        // console.log( response.meals[0].strInstructions.split(/\r?\n|\t/));
         
         
         
@@ -109,7 +109,7 @@ export async function idCardCliking() {
     `;
 
     instructionsdiv.innerHTML = `
-    ${newsteps.map((item, i) => {
+    ${steps.map((item, i) => {
         return `
         <li style="list-style: none; margin-bottom: 20px; font-size: 1.2rem;">  
             <i style="color: orangered; padding-right: 20px;  " class="bi bi-check-square"></i>  

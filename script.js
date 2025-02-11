@@ -58,6 +58,17 @@ const closeMenu = () => {
     document.getElementById('menu-button').addEventListener('click', iconChange);
 };
 
+//
+const attachCardListeners = () => {
+    document.querySelectorAll(".card-category").forEach(item => {
+       
+        item.addEventListener("click", function (event) {
+            console.log(item,"  item in card ");
+            cardClickingCategory(event, menuObject);
+        });
+    });
+};
+
 // it is very important because if we dont write this script dont wait for the loading and run then there is no croo button at that time, so it wont affect
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('menu-button').addEventListener('click', iconChange);
@@ -72,7 +83,12 @@ headerleft.addEventListener(('click'),()=>{
     document.getElementById('categories-main').style.display='block';
     document.getElementById('selected-item').style.display='none';
     document.getElementById('idItem').style.display='none';
+
+            // Reattach event listeners after changing the DOM
+            attachCardListeners();
+
 })
+
 
    
 
@@ -108,7 +124,7 @@ async function fetchProducts() {
 
             return `
                 <div class="col">
-                    <div class="card"  data-category="${item.strCategory}" data-description = "${item.strCategoryDescription}"style="position:relative;  padding:5%; border:2px solid whitesmoke;">
+                    <div class="card-category"   data-category="${item.strCategory}" data-description = "${item.strCategoryDescription}" style="position:relative;  padding:5%; border:2px solid whitesmoke;">
                         <img src="${item.strCategoryThumb}" class="card-img-top" alt="${item.strCategory}" />
                         <p class="card-text" style="position:absolute; background-color:rgb(225, 97, 32); right:5%; color:white; font-weight:500; padding:4px 8px; top:5%; border-radius:3px;">
                             ${item.strCategory}
@@ -122,12 +138,7 @@ async function fetchProducts() {
 
         console.log(menuArray); // Check if categories are added correctly
 
-        document.querySelectorAll(".card").forEach(item => {
-            item.addEventListener("click", function (event) {
-                cardClickingCategory(event, menuObject); // Pass event and menuObject
-            });
-        });
-
+        attachCardListeners();
 
     } catch (err) {
         console.error("Error in fetching data:", err);
