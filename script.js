@@ -8,11 +8,7 @@ let menuObject = {}
 
 let menu = document.getElementById('menu');
 
-// function showSelectedItem(){
-//         document.getElementById("categories-main").style.display = "none"; 
-//     document.getElementById("selected-item").style.display = "block";
 
-// }
 
 
 
@@ -68,10 +64,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetchProducts();
     //  for clicking header left and going to top
+
+    
 let headerleft = document.querySelector('.header-left');
 headerleft.addEventListener(('click'),()=>{
+    console.log('clicked');
     document.getElementById('categories-main').style.display='block';
     document.getElementById('selected-item').style.display='none';
+    document.getElementById('idItem').style.display='none';
 })
 
    

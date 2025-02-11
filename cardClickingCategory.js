@@ -5,6 +5,7 @@ export async function cardClickingCategory(event,menuObject) {
     let title = document.getElementById('title');
     let description = document.getElementById('description');
 
+
     let meals = document.getElementById('meals');
     console.log(meals);
 
