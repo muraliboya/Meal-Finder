@@ -7,6 +7,7 @@ export async function searchmeal(searchfield) {
 
     let mealsdiv = document.getElementById('mealsusingsearch');
     mealsdiv.style.display='block';
+    document.getElementById('idItem').style.display='none';
 
     if (searchfield.value.trim() === '') return;
     else {

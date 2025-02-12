@@ -76,14 +76,14 @@ export async function idCardCliking() {
         <p> <b>Tags : </b> <span style="color:red; border: 1px solid red;padding: 1px;">${response.meals[0].strTags} </span></p>
 
         </div>
-<div style="background-color: red; padding: 10px;">
+<div id='responsive' style="background-color: red; padding: 10px;">
     <p style="color: white; font-size: 1.5rem; font-weight: bold; text-align: start; margin-bottom: 10px;">
         Ingredients
     </p>
 
     <ul style="display: flex; flex-wrap: wrap; gap: 20px; padding: 0; list-style: none; justify-content: space-between;">
         ${ingredients.map((item, i) => {
-            return `<li style="width: 30%; display: flex; align-items: center; gap: 10px;">
+            return `<li id='innerDiv' style="width: 30%; display: flex; align-items: center;  gap: 10px; ">
                         <span style="display: flex; justify-content: center; align-items: center; 
                                     width: 30px; height: 30px; border-radius: 50%; 
                                     background-color: rgb(58, 150, 145); color: white; font-weight: bold;">

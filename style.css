@@ -7,6 +7,7 @@ body{
 .header{
     background-color: orange;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     box-sizing: border-box;
     padding-left: 3%;
@@ -63,7 +64,8 @@ body{
 .main-part1-search input{
     border-radius: 25px;
     height: 50px;
-    width: 300px;
+    width: 80%;
+    max-width: 300px;
     border: 1px solid white;
     margin-right: 20px;
     box-sizing: border-box;
@@ -171,6 +173,8 @@ body{
 
 #measure{
     margin-bottom: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 #mealsusingsearch{
     display:none;
@@ -184,35 +188,42 @@ body{
 
 
 
-/* 3 horizontal lines  */
-/* .menu-options{
-    display: none;
-    position: absolute;
-    background-color: white;
-    padding: 4%;
-} */
+@media (max-width: 480px){
 
-
-/* @media (min-width:620px) {
-    div{
-        background-color: yellow;
+    .main-part1-search {
+        flex-direction: column;
+        gap : 10px;
     }
-    .main-part1-search{
-        content: '';
-        opacity: 2;
-        transform: translateX(50%);
-        transition: 3s all ease ;
+
+    .main-part1-search input {
+        width: 100%;
+        margin: 0;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    .main-part1 h2,p{
+        text-align: center;
+    }
+    #id_part1{
         display: flex;
         flex-direction: column;
+
+    }
+    #id_part1 #id_image{
+        width: 90%;
+        padding: 3%;
+
+    }
+    #id_part1 #id_description{
+        width: 100%;
+        padding: 3%;
+    }
+    #responsive ul li{
+        display:flex;
+        flex-direction: column;
+        width: 100%;
         align-items: center;
-        align-content: center;
-        background-color: aquamarine;
     }
-    .main-part1{
-        content: '';
-        display: flex;
-        gap: 20px;
-        align-items:center;
-        justify-content: center;
-    }
-} */
+
+
+}
