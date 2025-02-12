@@ -17,6 +17,10 @@ export async function idCardCliking() {
     let measurediv = document.getElementById('measure');
     let idItem = document.getElementById('idItem');
 
+    
+    let mealsdiv = document.getElementById('mealsusingsearch');
+    mealsdiv.style.display='none';
+
 
     
 

@@ -39,7 +39,7 @@ export async function cardClickingCategory(event,menuObject) {
 
     try {
         // here am getting cors with mobiel network so am using below api link
-        let response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(`https://www.themealdb.com/api/json/v1/1/search.php?s=${categoryName}`)}`);
+        let response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${categoryName}`);
         let data = await response.json();
         console.log(data);
         if (!data.meals) {
@@ -55,7 +55,7 @@ export async function cardClickingCategory(event,menuObject) {
                         console.log(mealsitem.idMeal)
                      return    `
                     <div class="col">
-                        <div class="card-item" data-id=${mealsitem.idMeal} data-name=${mealsitem.strMeal}>
+                        <div class="card-item" data-id=${mealsitem.idMeal} data-name=${mealsitem.strMeal} style="border: 2px solid whitesmoke; padding: 5%;">
                             <img src="${mealsitem.strMealThumb}" class="card-img-top" alt="${mealsitem.strMeal}" />
                             <div class="card-body">
                                 <p class="card-text">${mealsitem.strMeal}</p>

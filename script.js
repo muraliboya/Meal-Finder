@@ -10,6 +10,8 @@ let menuObject = {}
 
 let menu = document.getElementById('menu');
 
+let mealsdiv = document.getElementById('mealsusingsearch');
+
 
 
 
@@ -97,6 +99,7 @@ headerleft.addEventListener(('click'),()=>{
     document.getElementById('categories-main').style.display='block';
     document.getElementById('selected-item').style.display='none';
     document.getElementById('idItem').style.display='none';
+    mealsdiv.style.display = 'none';
 
             // Reattach event listeners after changing the DOM
             attachCardListeners();

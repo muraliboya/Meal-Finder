@@ -84,27 +84,16 @@ body{
     border: 1px solid white;
 
 }
-.col .card-category img {
+.col .card-category img, .col .card-item img, .card-meals img {
     transition: transform 0.3s ease-in-out;
 }
 
-.col .card-category img:hover{
+.col .card-category img:hover, .col .card-item img:hover, .card-meals img:hover {
     transform: scale(0.7);
 }
-.col .card-category{
+.col .card-category, .col .card-item, .card-meals {
     height: 100%;
 }
-.col .card-item img, .card-meals img {
-    transition: transform 0.3s ease-in-out;
-}
-
-.col .card-item,.card-meals img:hover{
-    transform: scale(0.7);
-}
-.col .card-item,.card-meals{
-    height: 100%;
-}
-
 /* for selected cards, title, descripton, meals */
 .title-description{
     border: 2px solid orangered;
@@ -184,7 +173,7 @@ body{
     margin-bottom: 2%;
 }
 #mealsusingsearch{
-    /* display:none; */
+    display:none;
     padding: 1%;
 }
 
