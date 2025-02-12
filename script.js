@@ -1,5 +1,7 @@
 import { cardClickingCategory } from "./cardClickingCategory.js";
 
+import { searchmeal } from "./MealShowsOnSearch.js";
+
 let categoriesData = [];
 
 let menuArray = []
@@ -7,6 +9,11 @@ let menuArray = []
 let menuObject = {}
 
 let menu = document.getElementById('menu');
+
+
+
+
+
 
 
 
@@ -75,6 +82,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetchProducts();
     //  for clicking header left and going to top
+
+    let searchfield = document.getElementById('search-field');
+
+let searchbutton = document.getElementById('search-button');
+
+    searchbutton.addEventListener('click',()=>searchmeal(searchfield));
+
 
     
 let headerleft = document.querySelector('.header-left');

@@ -28,6 +28,7 @@ body{
     justify-content: center;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 .header-left img{
     height: 30px;
@@ -93,14 +94,14 @@ body{
 .col .card-category{
     height: 100%;
 }
-.col .card-item img {
+.col .card-item img, .card-meals img {
     transition: transform 0.3s ease-in-out;
 }
 
-.col .card-item img:hover{
+.col .card-item,.card-meals img:hover{
     transform: scale(0.7);
 }
-.col .card-item{
+.col .card-item,.card-meals{
     height: 100%;
 }
 
@@ -182,7 +183,10 @@ body{
 #measure{
     margin-bottom: 2%;
 }
-
+#mealsusingsearch{
+    /* display:none; */
+    padding: 1%;
+}
 
 
 
