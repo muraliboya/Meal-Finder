@@ -5,7 +5,7 @@ body{
     overflow-x: hidden;
 }
 .header{
-    background-color: orange;
+    background-color: orangered;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -39,7 +39,7 @@ body{
 
 
  .main-part1{
-    background-image: url('./main-background.jpg');
+    background-image: url('./main-background.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
