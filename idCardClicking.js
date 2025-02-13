@@ -55,13 +55,14 @@ export async function idCardCliking() {
 
         // Extracting  ingredients 
         let ingredients = Object.entries(response.meals[0])
-            .filter(([key, value]) => key.startsWith("strIngredient") && value.trim() !== "")
+            .filter(([key, value]) => key.startsWith("strIngredient") && value&& value.trim() !== "")
             .map(([key, value]) => value);
         console.log(ingredients)
 
+
         // extracting meansures
         let measures = Object.entries(response.meals[0])
-            .filter(([key, value]) => key.startsWith("strMeasure") && value.trim() !== "")
+            .filter(([key, value]) => key.startsWith("strMeasure") && value &&  value.trim() !== "")
             .map(([key, value]) => value);
         console.log(measures)
 
