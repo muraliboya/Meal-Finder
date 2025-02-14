@@ -55,7 +55,7 @@ export async function idCardCliking() {
 
         // Extracting  ingredients 
         let ingredients = Object.entries(response.meals[0])
-            .filter(([key, value]) => key.startsWith("strIngredient") && value&& value.trim() !== "")
+            .filter(([key, value]) => key.startsWith("strIngredient") && value && value.trim() !== "")
             .map(([key, value]) => value);
         console.log(ingredients)
 
